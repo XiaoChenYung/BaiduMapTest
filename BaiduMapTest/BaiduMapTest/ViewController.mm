@@ -18,6 +18,8 @@
     [super viewDidLoad];
     BMKMapView* mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
     self.view = mapView;
+    //切换为卫星图
+    [mapView setMapType:BMKMapTypeSatellite];
     self.mapView = mapView;
 
     // Do any additional setup after loading the view, typically from a nib.
