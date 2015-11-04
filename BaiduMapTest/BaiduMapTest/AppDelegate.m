@@ -8,7 +8,15 @@
 
 #import "AppDelegate.h"
 
+//@interface BaiduMapApiDemoAppDelegate : NSObject <UIApplicationDelegate> {
+//    UIWindow *window;
+//    UINavigationController *navigationController;
+//    BMKMapManager* _mapManager;
+//}
+
 @interface AppDelegate ()
+
+
 
 @end
 
@@ -16,6 +24,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"wMPuXA3shxuSWmwmOYGbU3IL"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    // Add the navigation controller's view to the window and display.
+    [self.window addSubview:navigationController.view];
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
